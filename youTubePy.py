@@ -5,6 +5,7 @@ path = str(input("video path here : "))
 #
 
 def audioF(ytb):
+    print("processing........")
     video = ytb.streams.filter(only_audio=True).first()
     out_file = video.download(output_path="C:/Users/ruben/Music/my_audios") 
 
@@ -16,14 +17,15 @@ def audioF(ytb):
         print("failed: the file is already exist")
     else:
         os.rename(out_file, new_file)
-        print("success")
+        print("success!!!!")
     
 
 def videoF(ytb):
+    print("processing........")
     mp4_files = ytb.streams.filter(file_extension="mp4")
     mp4_369p_files = mp4_files.get_highest_resolution() 
     mp4_369p_files.download("C:/Users/ruben/Videos/my_videos")
-    print("success")
+    print("success!!!!")
     
 
 
